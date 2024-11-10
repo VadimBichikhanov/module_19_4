@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from task1 import views  # Импортируем представление для домашней страницы
+from task1 import views  # Импортируем представление для домашней страницы и создания записей
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),  # Добавляем URL-адреса аутентификации
     path('', views.home, name='home'),  # Добавляем маршрут для домашней страницы
+    path('create_records/', views.create_records, name='create_records'),  # Добавляем маршрут для создания записей
 ]
