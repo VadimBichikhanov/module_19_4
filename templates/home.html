@@ -1,12 +1,17 @@
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h2>Welcome to the Home Page</h2>
-    <p>This is the home page of your Django project.</p>
-    <a href="{% url 'login' %}">Login</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block pagename %}Главная!{% endblock %}
+
+{% block content %}
+    <h2>Добро пожаловать на главную страницу!</h2>
+
+    <!-- Список зарегистрированных покупателей -->
+    <h3>Зарегистрированные покупатели:</h3>
+    <ul>
+        {% for buyer in buyers %}
+            <li>
+                {{ buyer.name }} - Баланс: {{ buyer.balance }}, Возраст: {{ buyer.age }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
